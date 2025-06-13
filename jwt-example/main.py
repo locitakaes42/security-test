@@ -35,3 +35,8 @@ def secure_endpoint(token: str = Depends(oauth2_scheme)):
     except JWTError:
         raise HTTPException(status_code=401, detail="Token decode error")
     return {"message": f"Hello, {username}"}
+
+# 👇 Ini untuk menjalankan file langsung
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
